@@ -102,6 +102,17 @@ function Profile () {
             <p className="text-lg"><strong>technologies</strong>: react, react-three-fiber</p>
           </div>
         </div>
+        {/* Real cv */}
+        <div className="flex mt-2">
+          <div className="m-2 w-1/4">
+            <a href="https://marekalgoud.netlify.app/"><img src={require('../assets/img/cv.png')} alt="" /></a>
+          </div>
+          <div className="m-2 w-3/4">
+            <h3 className="font-title text-2xl"><a href="https://marekalgoud.netlify.app/">My "Real" CV</a></h3>
+            <p className="text-xl">Simple CV made with react / material design</p>
+            <p className="text-lg"><strong>technologies</strong>: react</p>
+          </div>
+        </div>
       </div>
     </div>
     </>
