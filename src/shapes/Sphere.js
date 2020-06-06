@@ -43,8 +43,8 @@ function Sphere({  position, rotation, size, color, onClick, text }) {
         </Text>,
         scene
       )}
-    <mesh ref={ref} position={position} rotation={rotation}>
-      <sphereBufferGeometry attach="geometry" args={[size, 64, 64]} onClick={onClick} />
+    <mesh ref={ref} position={position} rotation={rotation} onClick={onClick}>
+      <sphereBufferGeometry attach="geometry" args={[size, 64, 64]}  />
       <textShaderMaterial attach="material" texture={target.texture} color={color} map={target.texture} />
       {/* <meshStandardMaterial attach="material" color={color} map={target.texture} /> */}
     </mesh>
