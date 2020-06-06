@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.text-shadow { 
+   text-shadow: 1px 3px #000000;
+}
+
+.bg-blur {
+    backdrop-filter: blur(10px);
+}
