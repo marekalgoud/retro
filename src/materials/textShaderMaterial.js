@@ -5,7 +5,8 @@ class TextShaderMaterial extends THREE.ShaderMaterial {
   constructor() {
     super({
       uniforms: {
-        uTexture: { type: "t", value: undefined },
+        color: { value: new THREE.Color("white") },
+        texture: { type: "t", value: undefined },
       },
       vertexShader: /*glsl*/ `
         varying vec2 vUv;
@@ -15,25 +16,38 @@ class TextShaderMaterial extends THREE.ShaderMaterial {
           vUv = uv;
           vNormal = normal;
           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }P
+        }
       `,
 
       fragmentShader: /*glsl*/ `
         varying vec2 vUv;
 
-        uniform sampler2D uTexture;
+        uniform sampler2D texture;
+        uniform vec3 color;
 
         void main() {
-          vec3 texture = texture2D(uTexture, vUv).rgb;
+          vec2 repeat = vec2(3.0, 1.0);
+          vec2 uv = fract(vUv * repeat);
 
-          gl_FragColor = vec4(1. - texture, 1.0);
+          vec3 vTexture = texture2D(texture, uv).rgb;
+          vTexture *= color;
+
+          gl_FragColor = vec4(vTexture, 1.0);
         }
       `
     })
   }
-  get uTexture() {
-    console.log(this.uniforms)
-    return this.uniforms.uTexture.value
+
+  get color() {
+    return this.uniforms.color.value
+  }
+
+  get texture() {
+    return this.uniforms.texture.value
+  }
+
+  set texture(v) {
+    this.uniforms.texture.value = v
   }
 
 }

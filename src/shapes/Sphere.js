@@ -33,8 +33,7 @@ function Sphere({  position, rotation, size, color, onClick, text }) {
     {createPortal(
         <Text
           color="#000000"
-          fontSize={8}
-          maxWidth={360}
+          fontSize={30}
           lineHeight={1.5}
           textAlign="justify"
           font="/font/bangers.woff"
@@ -46,8 +45,8 @@ function Sphere({  position, rotation, size, color, onClick, text }) {
       )}
     <mesh ref={ref} position={position} rotation={rotation}>
       <sphereBufferGeometry attach="geometry" args={[size, 64, 64]} onClick={onClick} />
-      {/* <textShaderMaterial attach="material" u-texture={target.texture} color={color} map={target.texture} /> */}
-      <meshStandardMaterial attach="material" color={color} map={target.texture} />
+      <textShaderMaterial attach="material" texture={target.texture} color={color} map={target.texture} />
+      {/* <meshStandardMaterial attach="material" color={color} map={target.texture} /> */}
     </mesh>
     </>
   )

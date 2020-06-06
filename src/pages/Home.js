@@ -35,7 +35,6 @@ function getMousePos(e) {
 function Camera() {
 
   const { viewport } = useThree()
-  console.log(viewport)
   const cam = useRef()
 
   let zoom = 20
@@ -182,27 +181,13 @@ function Home() {
       <CircleOfTriangle position={[8, -8, 1.6]} color="#000000" size={5} rotation={[0, 0, DEG * -45]} mouse={mouse} />
       <CircleOfTriangle position={[-12, -6, 1]} color={COLORS[3]} size={4} triangleSize={0.30} rotation={[0, 0, DEG * -45]} mouse={mouse} />
       <Circle position={[-11, -11, 0]} color={random.pick(COLORS)} size={2} />
-
-      <Circle position={[0, -17, 0]} color={COLORS[1]} size={3} onClick={() => navigate('/profile')} />
-      <mesh position={[0, -17, 0.1]}>
-        <Text
-          color="#000000"
-          fontSize={1.2}
-          lineHeight={70}
-          font="/font/bangers.woff"
-          anchorX="center"
-          anchorY="middle">
-          Enter
-        </Text>
-      </mesh>
-
       <Circle position={[-24, 20, -3]} color={random.pick(COLORS)} size={2} />
 
       {/* Bar3D */}
       <Bar3D position={[7, 9, 1]} color={COLORS[2]} color2={COLORS[0]} color3="#000000" size={3} weight={0.7} depth={0.5} number={6} rotation={[0, DEG * -60, DEG * -75]} mouse={mouse} />
       <Bar3D position={[2, -12, 3]} color={COLORS[2]} color2="#000000" color3={COLORS[0]} size={3} weight={0.7} depth={0.5} number={2} rotation={[0, DEG * 30, DEG * 135]} />
 
-      <Sphere position={[0, -17, 0]} color={COLORS[1]} size={3} onClick={() => navigate('/profile')} text="Enter Enter Enter Enter" />
+      <Sphere position={[0, -17, 0]} color={COLORS[1]} size={3} onClick={() => navigate('/profile')} text="Enter" />
     </Suspense>
   </Canvas>
   )
