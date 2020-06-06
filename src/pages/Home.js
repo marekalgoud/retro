@@ -53,7 +53,7 @@ function Home() {
   const mouse = useRef({ x: 0, y: 0 })
 
 
-  return (<Canvas onMouseMove={e => (mouse.current = getMousePos(e))}>
+  return (<Canvas pixelRatio={window.devicePixelRatio} onMouseMove={e => (mouse.current = getMousePos(e))}>
     <Suspense fallback={<HTML>loading...</HTML>}>
       <Camera />
       <OrbitControls
