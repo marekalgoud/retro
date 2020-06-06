@@ -26,7 +26,7 @@ class TextShaderMaterial extends THREE.ShaderMaterial {
         uniform vec3 color;
 
         void main() {
-          vec2 repeat = vec2(3.0, 1.0);
+          vec2 repeat = vec2(2.0, 1.0);
           vec2 uv = fract(vUv * repeat);
 
           vec3 vTexture = texture2D(texture, uv).rgb;

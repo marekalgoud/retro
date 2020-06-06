@@ -17,7 +17,6 @@ function Sphere({  position, rotation, size, color, onClick, text }) {
     const scene = new THREE.Scene()
     scene.background = new THREE.Color('white')
     const target = new THREE.WebGLRenderTarget(2048, 2048)
-    console.log(target)
     return [scene, target]
   }, [])
 
@@ -33,8 +32,7 @@ function Sphere({  position, rotation, size, color, onClick, text }) {
     {createPortal(
         <Text
           color="#000000"
-          fontSize={30}
-          lineHeight={1.5}
+          fontSize={25}
           textAlign="justify"
           font="/font/bangers.woff"
           anchorX="center"
