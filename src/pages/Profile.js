@@ -87,7 +87,7 @@ function Profile () {
           </div>
           <div className="m-2 w-3/4">
             <h3 className="font-title text-2xl"><Link to="/">Portfolio based on 90's style</Link></h3>
-            <p className="text-xl">I seen <a  class="underline" href="https://www.vectorstock.com/royalty-free-vector/set-design-of-90s-style-vector-13364825">this picture</a> and I tough : "Hey, could be a funny portfolio !" So I tried to do something close :)</p>
+            <p className="text-xl">I seen <a  className="underline" href="https://www.vectorstock.com/royalty-free-vector/set-design-of-90s-style-vector-13364825">this picture</a> and I tough : "Hey, could be a funny portfolio !" So I tried to do something close :)</p>
             <p className="text-lg"><strong>technologies</strong>: react, react-three-fiber, shader, reach-router, tailwindcss</p>
           </div>
         </div>
