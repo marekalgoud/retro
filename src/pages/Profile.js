@@ -43,7 +43,7 @@ function Profile () {
     const y = random.range(-30, 30)
     const angle = random.range(0, 360)
     objects.push(
-      <Square position={[x, y, 0]} size={2} rotation={[0, 0, DEG * angle]} color={random.pick(COLORS)} color2={random.pick(COLORS)} />
+      <Square key={'square'+i} position={[x, y, 0]} size={2} rotation={[0, 0, DEG * angle]} color={random.pick(COLORS)} color2={random.pick(COLORS)} />
     )
   }
 
@@ -52,7 +52,7 @@ function Profile () {
     const y = random.range(-30, 30)
     const size = random.range(0.3, 1)
     objects.push(
-      <Ring position={[x, y, 0]} size={size} weight={0.1} color={random.pick(COLORS)} color2={random.pick(COLORS)} />
+      <Ring key={'ring'+i} position={[x, y, 0]} size={size} weight={0.1} color={random.pick(COLORS)} color2={random.pick(COLORS)} />
     )
   }
   for(let i = 0; i < 20; i++) {
@@ -61,7 +61,7 @@ function Profile () {
     const angle = random.range(0, 360)
     const size = random.range(0.5, 2)
     objects.push(
-      <Cross position={[x, y, 0]} rotation={[0, 0, DEG * angle]} size={size} weight={0.1} color={random.pick(COLORS)} />
+      <Cross key={'cross'+i} position={[x, y, 0]} rotation={[0, 0, DEG * angle]} size={size} weight={0.1} color={random.pick(COLORS)} />
     )
   }
 
@@ -75,39 +75,52 @@ function Profile () {
     </Canvas>
     </div>
     <div className="bg-blur min-h-screen">
-      <div className="max-w-screen-lg mx-auto p-20 relative z-10">
+      <div className="max-w-screen-lg mx-auto p-8 md:p-20 relative z-10">
         <h1 className="font-title text-6xl text-turquoise text-shadow">Hello world !</h1>
-        <p className="mt-10 text-xl">I'm Marek Algoud a frontend developer living in France, Lyon. I love trying new stuff with all the frontend ecosystem, from the js framework (vue, react, angluar) to more creative coding with three.js !</p>
+        <p className="mt-10 text-xl">I'm <strong>Marek Algoud</strong> a frontend developer living in France, Lyon. I love trying new stuff with all the frontend ecosystem, from the js framework (vue, react, angluar) to more creative coding with three.js !</p>
 
-        <h2 className="font-title text-4xl text-turquoise text-shadow mt-20">Personal works</h2>
+        <h2 className="font-title text-4xl text-turquoise text-shadow mt-10 md:mt-20 ">Personal works</h2>
+
+        {/* kinetic typo */}
+        <div className="md:flex mt-4">
+          <div className="md:m-2 w-1/1 md:w-1/4">
+            <Link to="/"><img src={require('../assets/img/kinetic-typo.png')} alt="" /></Link>
+          </div>
+          <div className="mt-4 md:m-2 w-1/1 md:w-3/4">
+            <h3 className="font-title text-2xl"><Link to="https://elzebu-kinetic-typo.netlify.app">Kinetic typo</Link></h3>
+            <p className="text-xl">I tried to reproduce the kinetic typo explain in this <a className="underline" href="https://tympanus.net/codrops/2020/06/02/kinetic-typography-with-three-js/">article</a>, but with react three fiber. The font is not loaded with three-bmfont-text but with troika-3d-text.</p>
+            <p className="text-lg"><strong>technologies</strong>: react, react-three-fiber, shader</p>
+          </div>
+        </div>
+
         {/* Portfolio 90's*/}
-        <div className="flex mt-2">
-          <div className="m-2 w-1/4">
+        <div className="md:flex mt-8">
+          <div className="md:m-2 w-1/1 md:w-1/4">
             <Link to="/"><img src={require('../assets/img/portfolio.png')} alt="" /></Link>
           </div>
-          <div className="m-2 w-3/4">
+          <div className="mt-4 md:m-2 w-1/1 md:w-3/4">
             <h3 className="font-title text-2xl"><Link to="/">Portfolio based on 90's style</Link></h3>
-            <p className="text-xl">I seen <a  className="underline" href="https://www.vectorstock.com/royalty-free-vector/set-design-of-90s-style-vector-13364825">this picture</a> and I tough : "Hey, could be a funny portfolio !" So I tried to do something close :)</p>
+            <p className="text-xl">I seen <a className="underline" href="https://www.vectorstock.com/royalty-free-vector/set-design-of-90s-style-vector-13364825">this picture</a> and I tough : "Hey, could be a funny portfolio !" So I tried to do something close :)</p>
             <p className="text-lg"><strong>technologies</strong>: react, react-three-fiber, shader, reach-router, tailwindcss</p>
           </div>
         </div>
         {/* Puppy */}
-        <div className="flex mt-2">
-          <div className="m-2 w-1/4">
+        <div className="md:flex mt-8">
+          <div className="md:m-2 w-1/1 md:w-1/4">
             <a href="https://elzebu-puppy.netlify.app/"><img src={require('../assets/img/puppy.png')} alt="" /></a>
           </div>
-          <div className="m-2 w-3/4">
+          <div className="mt-4 md:m-2 w-1/1 md:w-3/4">
             <h3 className="font-title text-2xl"><a href="https://elzebu-puppy.netlify.app/">A Simple three.js Puppy</a></h3>
             <p className="text-xl">Inspired by @yakudoo works, a simple 3D puppy build with react-three-fiber. <br />The goal was to learn more about three and react-three-fiber, shadows and simple interaction.</p>
             <p className="text-lg"><strong>technologies</strong>: react, react-three-fiber</p>
           </div>
         </div>
         {/* Real cv */}
-        <div className="flex mt-2">
-          <div className="m-2 w-1/4">
+        <div className="md:flex mt-8">
+          <div className="md:m-2 w-1/1 md:w-1/4">
             <a href="https://marekalgoud.netlify.app/"><img src={require('../assets/img/cv.png')} alt="" /></a>
           </div>
-          <div className="m-2 w-3/4">
+          <div className="mt-4 md:m-2 w-1/1 md:w-3/4">
             <h3 className="font-title text-2xl"><a href="https://marekalgoud.netlify.app/">My "Real" CV</a></h3>
             <p className="text-xl">Simple CV made with react / material design</p>
             <p className="text-lg"><strong>technologies</strong>: react</p>
