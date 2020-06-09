@@ -1,38 +1,38 @@
 import React, {useRef, useMemo} from 'react'
 import { useFrame, createPortal } from 'react-three-fiber'
-import {OrthographicCamera, Text } from 'drei'
+import { Text } from 'drei'
 import * as THREE from 'three'
 
 import '../materials/textShaderMaterial'
 
 function Sphere({  position, rotation, size, color, onClick, text }) {
   const ref = useRef()
-  const cam = useRef()
 
   useFrame(() => {
     ref.current.rotation.y += 0.01
   })
 
-  const [scene, target] = useMemo(() => {
+  const [scene, target, camera] = useMemo(() => {
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color('white')
-    const target = new THREE.WebGLRenderTarget(2048, 2048)
-    return [scene, target]
+    scene.background = new THREE.Color('#FFFFFF')
+    const target = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight)
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000)
+    camera.position.z = 5
+    return [scene, target, camera]
   }, [])
 
   useFrame(state => {
     state.gl.setRenderTarget(target)
-    state.gl.render(scene, cam.current)
+    state.gl.render(scene, camera)
     state.gl.setRenderTarget(null)
   })
 
   return (
     <>
-    <OrthographicCamera ref={cam} position={[0, 0, 10]} zoom={10} />
     {createPortal(
         <Text
           color="#000000"
-          fontSize={25}
+          fontSize={1}
           textAlign="justify"
           font="/font/bangers.woff"
           anchorX="center"

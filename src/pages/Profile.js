@@ -84,10 +84,10 @@ function Profile () {
         {/* kinetic typo */}
         <div className="md:flex mt-4">
           <div className="md:m-2 w-1/1 md:w-1/4">
-            <Link to="/"><img src={require('../assets/img/kinetic-typo.png')} alt="" /></Link>
+            <a href="https://elzebu-kinetic-typo.netlify.app"><img src={require('../assets/img/kinetic-typo.png')} alt="" /></a>
           </div>
           <div className="mt-4 md:m-2 w-1/1 md:w-3/4">
-            <h3 className="font-title text-2xl"><Link to="https://elzebu-kinetic-typo.netlify.app">Kinetic typo</Link></h3>
+            <h3 className="font-title text-2xl"><a href="https://elzebu-kinetic-typo.netlify.app">Kinetic typo</a></h3>
             <p className="text-xl">I tried to reproduce the kinetic typo explain in this <a className="underline" href="https://tympanus.net/codrops/2020/06/02/kinetic-typography-with-three-js/">article</a>, but with react three fiber. The font is not loaded with three-bmfont-text but with troika-3d-text.</p>
             <p className="text-lg"><strong>technologies</strong>: react, react-three-fiber, shader</p>
           </div>
