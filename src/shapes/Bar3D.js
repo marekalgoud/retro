@@ -10,7 +10,7 @@ function Bar3D({ rotation, mouse, position, size, weight, number = 2, depth=0.2,
 
   useFrame(() => {
     if(mouse) {
-      const {x, y} = getMouseDegrees(mouse.current.x, mouse.current.y, 0.1)
+      const {x} = getMouseDegrees(mouse.current.x, mouse.current.y, 0.1)
       ref.current.rotation.x = x
       // ref.current.rotation.y = y
     }
